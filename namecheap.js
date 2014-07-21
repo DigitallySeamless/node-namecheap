@@ -589,9 +589,13 @@ namecheap.prototype = {
     else
       options.uri += '?' + params;
     request(options, function(err, res, body) {
-      body = parser.toJson(body, { object: true });
-      err = body.ApiResponse.Errors.Error;
-      res = body.ApiResponse.CommandResponse;
+      try {
+        body = parser.toJson(body, { object: true });
+        err = body.ApiResponse.Errors.Error;
+        res = body.ApiResponse.CommandResponse;
+      } catch(e) {
+        err = e;
+      }
       err = err ? { code : err.Number, message: err.$t } : undefined;
       res = res ? res[Object.keys(res)[0]] : undefined;
       callback && callback(err, res);

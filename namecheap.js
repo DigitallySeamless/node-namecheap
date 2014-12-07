@@ -182,7 +182,8 @@ namecheap.prototype = {
                 params[k + (1 + i)] = hosts[i][k];
           if(type)
             params.EmailType = type;
-          return instance.command('domains.dns.setHosts', params, callback);
+          // POST: https://www.namecheap.com/support/api/methods/domains-dns/set-hosts.aspx
+          return instance.command('domains.dns.setHosts', params, callback, 'POST');
         },
       },
       ns: {

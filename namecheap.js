@@ -600,7 +600,6 @@ namecheap.prototype = {
         err = e;
       }
       err = err ? { code : err.Number, message: err.$t } : undefined;
-      res = res ? res[Object.keys(res)[0]] : undefined;
       callback && callback(err, res);
     });
     return this;

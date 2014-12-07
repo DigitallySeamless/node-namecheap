@@ -583,11 +583,12 @@ namecheap.prototype = {
       method: method || 'GET',
       uri: this.endpoint
     };
-    params = qs.stringify(params);
-    if('POST' == method)
-      options.body = params;
-    else
+    if('POST' == method) {
+      options.form = params;
+    } else {
+      params = qs.stringify(params);
       options.uri += '?' + params;
+    }
     request(options, function(err, res, body) {
       try {
         body = parser.toJson(body, { object: true });

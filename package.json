@@ -3,7 +3,7 @@
   "name": "namecheap",
   "description": "Node.js library for the NameCheap API",
   "keywords": ["namecheap", "domains", "domain", "whois"],
-  "version": "0.0.1",
+  "version": "0.0.2",
   "homepage": "https://github.com/chadsmith/node-namecheap",
   "repository": {
     "type": "git",

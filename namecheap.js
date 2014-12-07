@@ -40,7 +40,8 @@ namecheap.prototype = {
             options[k] = params[k];
         options.DomainName = domain;
         options.Years = years;
-        return instance.command('domains.create', options, callback);
+        // POST: https://www.namecheap.com/support/api/methods/domains/create.aspx
+        return instance.command('domains.create', options, callback, 'POST');
       },
       getContacts: function(domain, callback) {
         if(!domain)
